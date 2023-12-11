@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang = "ja">
+<title>サイコロ</title>
+<head>
+  <meta charset = "UTF-8">
+  <title>サイコロ</title>
+  <!-- Bulmaのスタイルシートを読み込む -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+</head>
+<body>
+  <!-- heroコンポーネントでヘッダーを作る -->
+  <section class="hero is-primary"> <!-- heroクラスにis-dangerを追加 -->
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title is-size-1">サイコロの確率</h1> <!-- titleクラスにis-size-1を追加 -->
+    </div>
+  </div>
+</section>
+  <!-- sectionでコンテンツの領域を作る -->
+  <section class="section">
+    <div class="container">
+      <!-- columnsでグリッドシステムを使う -->
+      <div class="columns">
+        <!-- columnでカラムを作る -->
+        <div class="column is-one-third">
+          <!-- サイコロの画像 -->
+          <img src="saikoro_145.png">
+        </div>
+        <div class="column">
+          <!-- buttonでボタンを作る -->
+          <div id="buttons">
+            <button id="1" class="button is-info is-large">1</button>
+            <button id="2" class="button is-info is-large">2</button>
+            <button id="3" class="button is-info is-large">3</button>
+            <button id="4" class="button is-info is-large">4</button>
+            <button id="5" class="button is-info is-large">5</button>
+            <button id="6" class="button is-info is-large">6</button>
+          </div>
+          <p>入力した回数：<span id="count">0</span></p>
+          <!-- tableでテーブルを作る -->
+          <table id="table" class="table is-bordered is-striped is-narrow">
+            <tr>
+              <td>サイコロの目</td>
+              <td>出た回数</td>
+              <td>出る確率</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td id="freq1">0</td>
+              <td id="prob1">0%</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td id="freq2">0</td>
+              <td id="prob2">0%</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td id="freq3">0</td>
+              <td id="prob3">0%</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td id="freq4">0</td>
+              <td id="prob4">0%</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td id="freq5">0</td>
+              <td id="prob5">0%</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td id="freq6">0</td>
+              <td id="prob6">0%</td>
+            </tr>
+          </table>
+          <!-- RESETボタン -->
+          <button onclick="localStorage.clear()" class="button is-danger is-outlined">RESET</button>
+          <!-- 注意書きと画像 -->
+          <p style="font-size: 16px;">注:リセットしたあとは再読み込み(<img src="re.png" width="16" height="16">)を押してください</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+  // ボタンの要素を取得
+    var buttons = document.getElementById("buttons");
+    // 入力した回数をカウントする変数
+    var count = 0;
+    // 各サイコロの目の出た回数を記録する配列
+    var freq = [0, 0, 0, 0, 0, 0];
+    // ページが読み込まれたときの処理
+    window.addEventListener("load", function() {
+      // local storageからデータを取得する
+      var data = localStorage.getItem("dice");
+      // データがあれば、変数と表示を更新する
+      if (data) {
+        // データをJSON形式からオブジェクトに変換する
+        data = JSON.parse(data);
+        // 入力した回数と出た回数の配列をデータから取得する
+        count = data.count;
+        freq = data.freq;
+        // 入力した回数を表示する要素を取得
+        var countElem = document.getElementById("count");
+        // 入力した回数を表示する
+        countElem.textContent = count;
+        // 各サイコロの目の出た回数と出る確率を表示する
+        for (var i = 1; i <= 6; i++) {
+          // 出た回数を表示する要素を取得
+          var freqElem = document.getElementById("freq" + i);
+          // 出た回数を表示する
+          freqElem.textContent = freq[i - 1];
+          // 出る確率を表示する要素を取得
+          var probElem = document.getElementById("prob" + i);
+          // 出る確率を計算する
+          var prob = freq[i - 1] / count * 100;
+          // 出る確率を小数点以下2桁に丸める
+          prob = Math.round(prob * 100) / 100;
+          // 出る確率を表示する
+          probElem.textContent = prob + "%";
+        }
+      }
+    });
+    // ボタンがクリックされたときの処理!
+    buttons.addEventListener("click", function(event) {
+      // クリックされたボタンのIDを取得
+      var id = event.target.id;
+      // IDが1から6の場合のみ処理をする
+      if (id >= 1 && id <= 6) {
+        // IDを数値に変換
+        var num = parseInt(id);
+        // 入力した回数を1増やす
+        count++;
+        // サイコロの目の出た回数を1増やす
+        freq[num - 1]++;
+        // 入力した回数を表示する要素を取得
+        var countElem = document.getElementById("count");
+        // 入力した回数を表示する
+        countElem.textContent = count;
+        // 各サイコロの目の出た回数と出る確率を表示する
+        for (var i = 1; i <= 6; i++) {
+          // 出た回数を表示する要素を取得
+          var freqElem = document.getElementById("freq" + i);
+          // 出た回数を表示する
+          freqElem.textContent = freq[i - 1];
+          // 出る確率を表示する要素を取得
+          var probElem = document.getElementById("prob" + i);
+          // 出る確率を計算する
+          var prob = freq[i - 1] / count * 100;
+          // 出る確率を小数点以下2桁に丸める
+          prob = Math.round(prob * 100) / 100;
+          // 出る確率を表示する
+          probElem.textContent = prob + "%";
+        }
+        // local storageにデータを保存する
+        // 入力した回数と出た回数の配列をオブジェクトにまとめる
+        var data = {
+          count: count,
+          freq: freq
+        };
+        // オブジェクトをJSON形式に変換する
+        data = JSON.stringify(data);
+        // local storageにデータを保存する
+        localStorage.setItem("dice", data);
+      }
+    });
+
+    // 変更：キーボードの入力を検知する
+    document.addEventListener("keydown", function(event) {
+      // 押されたキーを取得
+      var key = event.key;
+      // キーが1から6の場合のみ処理をする
+      if (key >= "1" && key <= "6") {
+        // キーを数値に変換
+        var num = parseInt(key);
+        // 入力した回数を1増やす
+        count++;
+        // サイコロの目の出た回数を1増やす
+        freq[num - 1]++;
+        // 入力した回数を表示する要素を取得
+        var countElem = document.getElementById("count");
+        // 入力した回数を表示する
+        countElem.textContent = count;
+        // 各サイコロの目の出た回数と出る確率を表示する
+        for (var i = 1; i <= 6; i++) {
+          // 出た回数を表示する要素を取得
+          var freqElem = document.getElementById("freq" + i);
+          // 出た回数を表示する
+          freqElem.textContent = freq[i - 1];
+          // 出る確率を表示する要素を取得
+          var probElem = document.getElementById("prob" + i);
+          // 出る確率を計算する
+          var prob = freq[i - 1] / count * 100;
+          // 出る確率を小数点以下2桁に丸める
+          prob = Math.round(prob * 100) / 100;
+          // 出る確率を表示する
+          probElem.textContent = prob + "%";
+        }
+      }
+    });
+  </script>
+</body>
+  </html>
