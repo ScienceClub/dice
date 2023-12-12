@@ -7,6 +7,7 @@
   <!-- Bulmaのスタイルシートを読み込む -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
   <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css">
 </head>
 <body>
   <!-- heroコンポーネントでヘッダーを作る -->
@@ -73,50 +74,30 @@
           <p style="font-size: 12px;">注:リセットしたあとは再読み込み(<img src="re.png" width="12" height="12">)を押してください</p>
         </div>
       </div>
-                <!-- buttonでボタンを作る -->
-          <style>
-            #buttons {
-              text-align: center;
-            }
-          </style>
+      <div class="columns is-centered">
           <div id="buttons">
-            <button id="1" class="button is-info is-large is-square" style="width: 150px; height: 150px;">
-              <div class="content">
-                <p>1</p>
-                <!--<img src="dise1.webp" width="60" height="60">-->
-              </div>
-            </button>
-            <button id="2" class="button is-info is-large is-square" style="width: 150px; height: 150px;">
-              <div class="content">
-                <p>2</p>
-                <img src="dise2.webp" width="60" height="60">
-              </div>
-            </button>
-            <button id="3" class="button is-info is-large is-square" style="width: 150px; height: 150px;">
-              <div class="content">
-                <p>3</p>
-                <img src="dise3.webp" width="60" height="60">
-              </div>
-            </button>
-            <button id="4" class="button is-info is-large is-square" style="width: 150px; height: 150px;">
-              <div class="content">
-                <p>4</p>
-                <img src="dise4.webp" width="60" height="60">
-              </div>
-            </button>
-            <button id="5" class="button is-info is-large is-square" style="width: 150px; height: 150px;">
-              <div class="content">
-                <p>5</p>
-                <img src="dise5.webp" width="60" height="60">
-              </div>
-            </button>
-            <button id="6" class="button is-info is-large is-square" style="width: 150px; height: 150px;">
-              <div class="content">
-                <p>6</p>
-                <img src="dise6.webp" width="60" height="60">
-              </div>
-            </button>
+            <div class="column">
+              <button id="1" class="button is-info is-large is-square" style="width: 100px; height: 100px;">1</button>
+              <button id="2" class="button is-info is-large is-square" style="width: 100px; height: 100px;">2</button>
+              <button id="3" class="button is-info is-large is-square" style="width: 100px; height: 100px;">3</button>
+              <button id="4" class="button is-info is-large is-square" style="width: 100px; height: 100px;">4</button>
+              <button id="5" class="button is-info is-large is-square" style="width: 100px; height: 100px;">5</button>
+              <button id="6" class="button is-info is-large is-square" style="width: 100px; height: 100px;">6</button>
+            </div>
           </div>
+      </div>
+      <div class="columns is-centered">
+          <div id="dises">
+            <div class="column">
+              <img src="dise1.webp" style="width: 100px; height: 100px;">
+              <img src="dise2.webp" style="width: 100px; height: 100px;">
+              <img src="dise3.webp" style="width: 100px; height: 100px;">
+              <img src="dise4.webp" style="width: 100px; height: 100px;">
+              <img src="dise5.webp" style="width: 100px; height: 100px;">
+              <img src="dise6.webp" style="width: 100px; height: 100px;">
+            </div>
+          </div>
+      </div>
     </div>
   </section>
   <!-- フッター要素を作る -->
