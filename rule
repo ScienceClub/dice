@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>利用規約</title>
+  <!-- BulmaのCDNを参照 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <!-- Font AwesomeのCDNを参照 -->
+  <script src="https://kit.fontawesome.com/a3be9883af.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <section class="hero is-danger"> <!-- heroクラスにis-dangerを追加 -->
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title is-size-1">利用規約</h1> <!-- titleクラスにis-size-1を追加 -->
+      </div>
+    </div>
+  </section>
+  <!-- コンテナクラスで中央寄せ -->
+  <div class="container">
+    <!-- セクションクラスで余白を確保 -->
+    <section class="section">
+      <!-- コンテンツクラスでテキストを表示 -->
+      <div class="content">
+        <p>サイトのご利用に際して、以下の注意事項をご理解いただき、同意の上でご利用いただきますようお願い申し上げます。</p>
+        <h2 class="subtitle">責任の限定:</h2>
+        <p>当サイトを利用する際に生じたいかなる損害や問題に対しても、一切の責任を負いかねます。サイトの利用は利用者の自己責任で行っていただくようお願いいたします。</p>
+        <h2 class="subtitle">データの保証:</h2>
+        <p>サイト上で提供される情報やデータについて、その正確性や完全性を保証するものではありません。データの損失や誤りが生じる可能性がありますので、大切な情報はバックアップを取るなど、ご自身で適切な対策を講じてください。</p>
+        <h2 class="subtitle">サービス変更の可能性:</h2>
+        <p>サイトの内容や提供サービスは予告なく変更される場合があります。変更により提供されていた機能や情報が影響を受ける可能性があるため、常に最新の情報をご確認いただくようお願いいたします。</p>
+        <h2 class="subtitle">セキュリティ対策:</h2>
+        <p>サイトはセキュリティ対策を講じておりますが、インターネット上の情報は様々な脅威にさらされています。セキュリティに関する不審な活動や問題が発生した場合は、速やかにお知らせいただきますようお願いいたします。</p>
+        <p>以上の内容を十分に理解し、同意の上でサイトをご利用いただきますようお願いいたします。何かご質問や疑義がございましたら、お気軽にお問い合わせください。</p>
+      </div>
+    </section>
+  </div>
+  <footer class="footer has-background-grey-lighter">
+    <!-- containerクラスでコンテンツを囲み、is-fluidクラスで幅を画面いっぱいにする -->
+    <div class="container is-fluid">
+      <div class="content has-text-centered">
+        <!-- smallタグで著作権表記をする -->
+        <p>© 2023 T.A. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
