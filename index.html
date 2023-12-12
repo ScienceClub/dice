@@ -6,6 +6,7 @@
   <title>サイコロ</title>
   <!-- Bulmaのスタイルシートを読み込む -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
   <!-- heroコンポーネントでヘッダーを作る -->
@@ -27,18 +28,9 @@
           <img src="saikoro_145.png">
         </div>
         <div class="column">
-          <!-- buttonでボタンを作る -->
-          <div id="buttons">
-            <button id="1" class="button is-info is-large is-square">1</button>
-            <button id="2" class="button is-info is-large is-square">2</button>
-            <button id="3" class="button is-info is-large is-square">3</button>
-            <button id="4" class="button is-info is-large is-square">4</button>
-            <button id="5" class="button is-info is-large is-square">5</button>
-            <button id="6" class="button is-info is-large is-square">6</button>
-          </div>
           <p>入力した回数：<span id="count">0</span></p>
           <!-- tableでテーブルを作る -->
-          <table id="table" class="table is-bordered is-striped is-narrow">
+          <table id="table" class="table is-bordered is-striped is-hoverable is-fullwidth is-narrow">
             <tr>
               <td>サイコロの目</td>
               <td>出た回数</td>
@@ -76,13 +68,67 @@
             </tr>
           </table>
           <!-- RESETボタン -->
-          <button onclick="localStorage.clear()" class="button is-danger is-outlined">RESET</button>
+          <button onclick="localStorage.clear()"class="button is-danger is-outlined">RESET</button>
           <!-- 注意書きと画像 -->
-          <p style="font-size: 16px;">注:リセットしたあとは再読み込み(<img src="re.png" width="16" height="16">)を押してください</p>
+          <p style="font-size: 12px;">注:リセットしたあとは再読み込み(<img src="re.png" width="12" height="12">)を押してください</p>
         </div>
       </div>
+                <!-- buttonでボタンを作る -->
+          <style>
+            #buttons {
+              text-align: center;
+            }
+          </style>
+          <div id="buttons">
+            <button id="1" class="button is-info is-large is-square" style="width: 150px; height: 150px;">
+              <div class="content">
+                <p>1</p>
+                <img src="dise1.png" width="60" height="60">
+              </div>
+            </button>
+            <button id="2" class="button is-info is-large is-square" style="width: 150px; height: 150px;">
+              <div class="content">
+                <p>2</p>
+                <img src="dise2.png" width="60" height="60">
+              </div>
+            </button>
+            <button id="3" class="button is-info is-large is-square" style="width: 150px; height: 150px;">
+              <div class="content">
+                <p>3</p>
+                <img src="dise3.png" width="60" height="60">
+              </div>
+            </button>
+            <button id="4" class="button is-info is-large is-square" style="width: 150px; height: 150px;">
+              <div class="content">
+                <p>4</p>
+                <img src="dise4.png" width="60" height="60">
+              </div>
+            </button>
+            <button id="5" class="button is-info is-large is-square" style="width: 150px; height: 150px;">
+              <div class="content">
+                <p>5</p>
+                <img src="dise5.png" width="60" height="60">
+              </div>
+            </button>
+            <button id="6" class="button is-info is-large is-square" style="width: 150px; height: 150px;">
+              <div class="content">
+                <p>6</p>
+                <img src="dise6.png" width="60" height="60">
+              </div>
+            </button>
+          </div>
     </div>
   </section>
+  <!-- フッター要素を作る -->
+  <footer class="footer has-background-grey-lighter">
+    <!-- containerクラスでコンテンツを囲み、is-fluidクラスで幅を画面いっぱいにする -->
+    <div class="container is-fluid">
+      <div class="content has-text-centered">
+        <!-- smallタグで著作権表記をする -->
+        <p>© 2023 T.A. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
   <script>
   // ボタンの要素を取得
     var buttons = document.getElementById("buttons");
