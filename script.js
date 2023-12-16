@@ -41,7 +41,16 @@
     document.addEventListener("keydown", function(event) {
       // 押されたキーを取得
       var key = event.key;
+<<<<<<< Updated upstream
       rollDice(key)
+=======
+      // キーが1から6の場合のみ処理をする
+      if (key >= "1" && key <= "6") {
+        // キーを数値に変換
+        var num = parseInt(key);
+        rollDice(key)
+      }
+>>>>>>> Stashed changes
     });
 
     // ボタンがクリックされたときの処理!
