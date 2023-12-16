@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang = "ja">
-<title>サイコロ</title>
 <head>
   <meta charset = "UTF-8">
   <title>サイコロ</title>
   <!-- Bulmaのスタイルシートを読み込む -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
   <link rel="icon" href="/image/favicon.ico">
+  <script src="script.js"></script>
 </head>
 <body>
   <!-- heroコンポーネントでヘッダーを作る -->
@@ -68,20 +68,21 @@
             </tr>
           </table>
           <!-- RESETボタン -->
-          <button id="reset" class="button is-danger is-outlined">RESET</button>
+          <button id="reset" class="button is-danger is-outlined" onclick="reset()">RESET</button>
           <!-- 注意書きと画像 -->
-          <p style="font-size: 12px;">注:リセットしたあとは再読み込み(<img src="image/re.png" width="12" height="12">)を押してください</p>
+          <p style="font-size: 12px;">注:リセットしたあとは再読み込み(<img src="image/re.webp" width="12" height="12">)を押してください</p>
         </div>
       </div>
       <div class="columns is-centered">
           <div id="buttons">
             <div class="column">
-              <button id="1" class="button is-info is-large is-square" style="width: 100px; height: 100px;" onclick="changeImage(this.id)">1</button>
-              <button id="2" class="button is-info is-large is-square" style="width: 100px; height: 100px;" onclick="changeImage(this.id)">2</button>
-              <button id="3" class="button is-info is-large is-square" style="width: 100px; height: 100px;" onclick="changeImage(this.id)">3</button>
-              <button id="4" class="button is-info is-large is-square" style="width: 100px; height: 100px;" onclick="changeImage(this.id)">4</button>
-              <button id="5" class="button is-info is-large is-square" style="width: 100px; height: 100px;" onclick="changeImage(this.id)">5</button>
-              <button id="6" class="button is-info is-large is-square" style="width: 100px; height: 100px;" onclick="changeImage(this.id)">6</button>
+              <button id="1" class="button is-info is-large is-square" style="width: 100px; height: 100px;" onclick="rollDice(1)">1</button>
+              <button id="2" class="button is-info is-large is-square" style="width: 100px; height: 100px;" onclick="rollDice(2)">2</button>
+              <button id="3" class="button is-info is-large is-square" style="width: 100px; height: 100px;" onclick="rollDice(3)">3</button>
+              <button id="4" class="button is-info is-large is-square" style="width: 100px; height: 100px;" onclick="rollDice(4)">4</button>
+              <button id="5" class="button is-info is-large is-square" style="width: 100px; height: 100px;" onclick="rollDice(5)">5</button>
+              <button id="6" class="button is-info is-large is-square" style="width: 100px; height: 100px;" onclick="rollDice(6)">6</button>
+              
             </div>
           </div>
         </div>
@@ -101,12 +102,12 @@
       <div class="columns is-centered">
         <div id="buttons_minus">
           <div class="column">
-            <button id="1" class="button is-danger is-large is-square" style="width: 40px; height: 40px;">-1</button>
-            <button id="2" class="button is-danger is-large is-square" style="width: 40px; height: 40px;">-2</button>
-            <button id="3" class="button is-danger is-large is-square" style="width: 40px; height: 40px;">-3</button>
-            <button id="4" class="button is-danger is-large is-square" style="width: 40px; height: 40px;">-4</button>
-            <button id="5" class="button is-danger is-large is-square" style="width: 40px; height: 40px;">-5</button>
-            <button id="6" class="button is-danger is-large is-square" style="width: 40px; height: 40px;">-6</button>
+            <button id="1" class="button is-danger is-large is-square" style="width: 40px; height: 40px;" onclick="rollDice_minus(1)">-1</button>
+            <button id="2" class="button is-danger is-large is-square" style="width: 40px; height: 40px;" onclick="rollDice_minus(2)">-2</button>
+            <button id="3" class="button is-danger is-large is-square" style="width: 40px; height: 40px;" onclick="rollDice_minus(3)">-3</button>
+            <button id="4" class="button is-danger is-large is-square" style="width: 40px; height: 40px;" onclick="rollDice_minus(4)">-4</button>
+            <button id="5" class="button is-danger is-large is-square" style="width: 40px; height: 40px;" onclick="rollDice_minus(5)">-5</button>
+            <button id="6" class="button is-danger is-large is-square" style="width: 40px; height: 40px;" onclick="rollDice_minus(6)">-6</button>
           </div>
         </div>
       </div>   
@@ -118,7 +119,7 @@
       <div class="content has-text-centered">
         <!-- smallタグで著作権表記をする -->
         <p>© 2023 T.A. All Rights Reserved.<br>
-        最終更新2023-12-14 Ver.1.4<br>
+        最終更新2023-12-16 Ver.2.0<br>
         データは保存されるようになっていますが、万が一消えることがあります。<br>
         データはキーボードの1～6でも入力できます。今すぐ試してみよう。</p>
         <a href="site/rule.html">利用規約</a>
@@ -126,215 +127,5 @@
       </div>
     </div>
   </footer>
-  <script>
-  // ボタンの要素を取得
-    var buttons = document.getElementById("buttons");
-    var buttons_minus = document.getElementById("buttons_minus");
-    var reset = document.getElementById("reset");
-    // 入力した回数をカウントする変数
-    var count = 0;
-    // 各サイコロの目の出た回数を記録する配列
-    var freq = [0, 0, 0, 0, 0, 0];
-    // ページが読み込まれたときの処理
-    window.addEventListener("load", function() {
-      // local storageからデータを取得する
-      var data = localStorage.getItem("dice");
-      // データがあれば、変数と表示を更新する
-      if (data) {
-        // データをJSON形式からオブジェクトに変換する
-        data = JSON.parse(data);
-        // 入力した回数と出た回数の配列をデータから取得する
-        count = data.count;
-        freq = data.freq;
-        // 入力した回数を表示する要素を取得
-        var countElem = document.getElementById("count");
-        // 入力した回数を表示する
-        countElem.textContent = count;
-        // 各サイコロの目の出た回数と出る確率を表示する
-        for (var i = 1; i <= 6; i++) {
-          // 出た回数を表示する要素を取得
-          var freqElem = document.getElementById("freq" + i);
-          // 出た回数を表示する
-          freqElem.textContent = freq[i - 1];
-          // 出る確率を表示する要素を取得
-          var probElem = document.getElementById("prob" + i);
-          // 出る確率を計算する
-          var prob = freq[i - 1] / count * 100;
-          // 出る確率を小数点以下2桁に丸める
-          prob = Math.round(prob * 100) / 100;
-          // 出る確率を表示する
-          probElem.textContent = prob + "%";
-        }
-      }
-    });
-    // ボタンがクリックされたときの処理!
-    buttons.addEventListener("click", function(event) {
-      // クリックされたボタンのIDを取得
-      var id = event.target.id;
-      // IDが1から6の場合のみ処理をする
-      if (id >= 1 && id <= 6) {
-        // IDを数値に変換
-        var num = parseInt(id);
-        // 入力した回数を1増やす
-        count++;
-        // サイコロの目の出た回数を1増やす
-        freq[num - 1]++;
-        // 入力した回数を表示する要素を取得
-        var countElem = document.getElementById("count");
-        // 入力した回数を表示する
-        countElem.textContent = count;
-        // 各サイコロの目の出た回数と出る確率を表示する
-        for (var i = 1; i <= 6; i++) {
-          // 出た回数を表示する要素を取得
-          var freqElem = document.getElementById("freq" + i);
-          // 出た回数を表示する
-          freqElem.textContent = freq[i - 1];
-          // 出る確率を表示する要素を取得
-          var probElem = document.getElementById("prob" + i);
-          // 出る確率を計算する
-          var prob = freq[i - 1] / count * 100;
-          // 出る確率を小数点以下2桁に丸める
-          prob = Math.round(prob * 100) / 100;
-          // 出る確率を表示する
-          probElem.textContent = prob + "%";
-        }
-        // local storageにデータを保存する
-        // 入力した回数と出た回数の配列をオブジェクトにまとめる
-        var data = {
-          count: count,
-          freq: freq
-        };
-        // オブジェクトをJSON形式に変換する
-        data = JSON.stringify(data);
-        // local storageにデータを保存する
-        localStorage.setItem("dice", data);
-      }
-    });
-
-    // 変更：キーボードの入力を検知する
-    document.addEventListener("keydown", function(event) {
-      // 押されたキーを取得
-      var key = event.key;
-      // キーが1から6の場合のみ処理をする
-      if (key >= "1" && key <= "6") {
-        // キーを数値に変換
-        var num = parseInt(key);
-        // 入力した回数を1増やす
-        count++;
-        // サイコロの目の出た回数を1増やす
-        freq[num - 1]++;
-        // 入力した回数を表示する要素を取得
-        var countElem = document.getElementById("count");
-        // 入力した回数を表示する
-        countElem.textContent = count;
-        // 各サイコロの目の出た回数と出る確率を表示する
-        for (var i = 1; i <= 6; i++) {
-          // 出た回数を表示する要素を取得
-          var freqElem = document.getElementById("freq" + i);
-          // 出た回数を表示する
-          freqElem.textContent = freq[i - 1];
-          // 出る確率を表示する要素を取得
-          var probElem = document.getElementById("prob" + i);
-          // 出る確率を計算する
-          var prob = freq[i - 1] / count * 100;
-          // 出る確率を小数点以下2桁に丸める
-          prob = Math.round(prob * 100) / 100;
-          // 出る確率を表示する
-          probElem.textContent = prob + "%";
-        }
-                // local storageにデータを保存する
-        // 入力した回数と出た回数の配列をオブジェクトにまとめる
-        var data = {
-          count: count,
-          freq: freq
-        };
-        // オブジェクトをJSON形式に変換する
-        data = JSON.stringify(data);
-        // local storageにデータを保存する
-        localStorage.setItem("dice", data);
-      }
-    });
-
-// ボタンがクリックされたときの処理!
-buttons_minus.addEventListener("click", function(event) {
-      // クリックされたボタンのIDを取得
-      var id = event.target.id;
-      // IDが1から6の場合のみ処理をする
-      if (id >= 1 && id <= 6) {
-        // IDを数値に変換
-        var num = parseInt(id);
-        // 入力した回数を1減らす
-        count--;
-        // サイコロの目の出た回数を1減らす
-        freq[num - 1]--;
-        // 入力した回数を表示する要素を取得
-        var countElem = document.getElementById("count");
-        // 入力した回数を表示する
-        countElem.textContent = count;
-        // 各サイコロの目の出た回数と出る確率を表示する
-        for (var i = 1; i <= 6; i++) {
-          // 出た回数を表示する要素を取得
-          var freqElem = document.getElementById("freq" + i);
-          // 出た回数を表示する
-          freqElem.textContent = freq[i - 1];
-          // 出る確率を表示する要素を取得
-          var probElem = document.getElementById("prob" + i);
-          // 出る確率を計算する
-          var prob = freq[i - 1] / count * 100;
-          // 出る確率を小数点以下2桁に丸める
-          prob = Math.round(prob * 100) / 100;
-          // 出る確率を表示する
-          probElem.textContent = prob + "%";
-        }
-        // local storageにデータを保存する
-        // 入力した回数と出た回数の配列をオブジェクトにまとめる
-        var data = {
-          count: count,
-          freq: freq
-        };
-        // オブジェクトをJSON形式に変換する
-        data = JSON.stringify(data);
-        // local storageにデータを保存する
-        localStorage.setItem("dice", data);
-      }
-    });
-    // ボタンがクリックされたときの処理!
-    reset.addEventListener("click", function(event) {
-      // アラートを表示してユーザーの確認を求める
-        const result = confirm("本当にリセットしますか？これまでの頑張りも水の泡ですよ。");
-        // OKが押された場合
-          if (result) {
-         // local storageのデータを全て削除
-         localStorage.clear();
-        // 完了のメッセージを表示
-        alert("すべて、リセットしました。再読み込みをしてください。");
-        }
-    });
-      // 画像のパスを配列に格納する
-var images = ["image/dise1.webp", "image/dise2.webp", "image/dise3.webp", "image/dise4.webp", "image/dise5.webp", "image/dise6.webp"];
-
-// ボタンが押されたときに画像を切り替える関数
-function changeImage(id) {
-  // ボタンのidから画像のインデックスを求める
-  var index = id - 1;
-  // 画像の要素を取得する
-  var img = document.getElementById("dice");
-  // 画像のsrc属性を変更する
-  img.src = images[index];
-}
-
-// キーボードが押されたときに画像を切り替える関数
-function keyPress(event) {
-  // キーの値を取得する
-  var key = event.key;
-  // 1～6のキーであれば画像を切り替える
-  if (key >= 1 && key <= 6) {
-    changeImage(key);
-  }
-}
-
-// キーイベントのリスナーを登録する
-document.addEventListener("keydown", keyPress);
-  </script>
 </body>
   </html>
