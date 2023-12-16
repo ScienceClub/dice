@@ -37,7 +37,8 @@ window.addEventListener("load", function () {
     }
   }
 });
-// 変更：キーボードの入力を検知する
+
+//キーボードの入力を検知する
 document.addEventListener("keydown", function (event) {
   // 押されたキーを取得
   var key = event.key;
@@ -49,7 +50,7 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-// ボタンがクリックされたときの処理!
+//リセット定義
 function reset() {
   // アラートを表示してユーザーの確認を求める
   const result = confirm("本当にリセットしますか？これまでの頑張りも水の泡ですよ。");
@@ -62,19 +63,7 @@ function reset() {
   }
 };
 
-// キーボードが押されたときに画像を切り替える関数
-function keyPress(event) {
-  // キーの値を取得する
-  var key = event.key;
-  // 1～6のキーであれば画像を切り替える
-  if (key >= 1 && key <= 6) {
-    changeImage(key);
-  }
-}
-
-// キーイベントのリスナーを登録する
-document.addEventListener("keydown", keyPress);
-
+//回数を１増やす定義
 function rollDice(id) {
   // 入力した回数を1増やす
   count++;
@@ -115,7 +104,7 @@ function rollDice(id) {
   img.src = images_dise[id - 1];
 };
 
-// ボタンがクリックされたときの処理!
+//回数を１減らす定義
 function rollDice_minus(id) {
   // クリックされたボタンのIDを取得
   var id = event.target.id;
