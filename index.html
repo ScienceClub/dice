@@ -6,7 +6,7 @@
   <title>サイコロ</title>
   <!-- Bulmaのスタイルシートを読み込む -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
-  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="/image/favicon.ico">
 </head>
 <body>
   <!-- heroコンポーネントでヘッダーを作る -->
@@ -25,7 +25,7 @@
         <!-- columnでカラムを作る -->
         <div class="column is-one-third">
           <!-- サイコロの画像 -->
-          <img id="dice" src="dise1.webp" alt="サイコロの画像">
+          <img id="dice" src="image/dise1.webp" alt="サイコロの画像">
         </div>
         <div class="column">
           <p>入力した回数：<span id="count">0</span></p>
@@ -70,7 +70,7 @@
           <!-- RESETボタン -->
           <button id="reset" class="button is-danger is-outlined">RESET</button>
           <!-- 注意書きと画像 -->
-          <p style="font-size: 12px;">注:リセットしたあとは再読み込み(<img src="re.png" width="12" height="12">)を押してください</p>
+          <p style="font-size: 12px;">注:リセットしたあとは再読み込み(<img src="image/re.png" width="12" height="12">)を押してください</p>
         </div>
       </div>
       <div class="columns is-centered">
@@ -88,12 +88,12 @@
         <div class="columns is-centered">
           <div id="dises">
             <div class="column">
-              <img src="dise1.webp" style="width: 100px; height: 100px;">
-              <img src="dise2.webp" style="width: 100px; height: 100px;">
-              <img src="dise3.webp" style="width: 100px; height: 100px;">
-              <img src="dise4.webp" style="width: 100px; height: 100px;">
-              <img src="dise5.webp" style="width: 100px; height: 100px;">
-              <img src="dise6.webp" style="width: 100px; height: 100px;">
+              <img src="image/dise1.webp" style="width: 100px; height: 100px;">
+              <img src="image/dise2.webp" style="width: 100px; height: 100px;">
+              <img src="image/dise3.webp" style="width: 100px; height: 100px;">
+              <img src="image/dise4.webp" style="width: 100px; height: 100px;">
+              <img src="image/dise5.webp" style="width: 100px; height: 100px;">
+              <img src="image/dise6.webp" style="width: 100px; height: 100px;">
             </div>
           </div>
       </div>
@@ -121,8 +121,8 @@
         最終更新2023-12-14 Ver.1.4<br>
         データは保存されるようになっていますが、万が一消えることがあります。<br>
         データはキーボードの1～6でも入力できます。今すぐ試してみよう。</p>
-        <a href="rule.html">利用規約</a>
-        <a href="version.html">バージョン情報</a>
+        <a href="site/rule.html">利用規約</a>
+        <a href="site/version.html">バージョン情報</a>
       </div>
     </div>
   </footer>
@@ -311,7 +311,7 @@ buttons_minus.addEventListener("click", function(event) {
         }
     });
       // 画像のパスを配列に格納する
-var images = ["dise1.webp", "dise2.webp", "dise3.webp", "dise4.webp", "dise5.webp", "dise6.webp"];
+var images = ["image/dise1.webp", "image/dise2.webp", "image/dise3.webp", "image/dise4.webp", "image/dise5.webp", "image/dise6.webp"];
 
 // ボタンが押されたときに画像を切り替える関数
 function changeImage(id) {
