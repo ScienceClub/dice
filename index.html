@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html lang = "ja">
+<html lang="ja">
+
 <head>
-  <meta charset = "UTF-8">
+  <meta charset="UTF-8">
   <title>サイコロ</title>
   <!-- Bulmaのスタイルシートを読み込む -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
   <link rel="icon" href="/image/favicon.ico">
   <script src="script.js"></script>
 </head>
+
 <body>
   <!-- heroコンポーネントでヘッダーを作る -->
   <section class="hero is-primary is-small"> <!-- heroクラスにis-dangerを追加 -->
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title is-size-1">サイコロの確率</h1> <!-- titleクラスにis-size-1を追加 -->
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title is-size-1">サイコロの確率</h1> <!-- titleクラスにis-size-1を追加 -->
+      </div>
     </div>
-  </div>
-</section>
+  </section>
   <!-- sectionでコンテンツの領域を作る -->
   <section class="section">
     <div class="container">
@@ -74,43 +76,55 @@
         </div>
       </div>
       <div class="columns is-centered">
-          <div id="buttons">
-            <div class="column">
-              <button id="1" class="button is-info is-large is-square" style="width: 100px; height: 100px;" onclick="rollDice(1)">1</button>
-              <button id="2" class="button is-info is-large is-square" style="width: 100px; height: 100px;" onclick="rollDice(2)">2</button>
-              <button id="3" class="button is-info is-large is-square" style="width: 100px; height: 100px;" onclick="rollDice(3)">3</button>
-              <button id="4" class="button is-info is-large is-square" style="width: 100px; height: 100px;" onclick="rollDice(4)">4</button>
-              <button id="5" class="button is-info is-large is-square" style="width: 100px; height: 100px;" onclick="rollDice(5)">5</button>
-              <button id="6" class="button is-info is-large is-square" style="width: 100px; height: 100px;" onclick="rollDice(6)">6</button>
-              
-            </div>
+        <div id="buttons">
+          <div class="column">
+            <button id="1" class="button is-info is-large is-square" style="width: 100px; height: 100px;"
+              onclick="rollDice(1)">1</button>
+            <button id="2" class="button is-info is-large is-square" style="width: 100px; height: 100px;"
+              onclick="rollDice(2)">2</button>
+            <button id="3" class="button is-info is-large is-square" style="width: 100px; height: 100px;"
+              onclick="rollDice(3)">3</button>
+            <button id="4" class="button is-info is-large is-square" style="width: 100px; height: 100px;"
+              onclick="rollDice(4)">4</button>
+            <button id="5" class="button is-info is-large is-square" style="width: 100px; height: 100px;"
+              onclick="rollDice(5)">5</button>
+            <button id="6" class="button is-info is-large is-square" style="width: 100px; height: 100px;"
+              onclick="rollDice(6)">6</button>
+
           </div>
         </div>
-        <div class="columns is-centered">
-          <div id="dises">
-            <div class="column">
-              <img src="image/dise1.webp" style="width: 100px; height: 100px;">
-              <img src="image/dise2.webp" style="width: 100px; height: 100px;">
-              <img src="image/dise3.webp" style="width: 100px; height: 100px;">
-              <img src="image/dise4.webp" style="width: 100px; height: 100px;">
-              <img src="image/dise5.webp" style="width: 100px; height: 100px;">
-              <img src="image/dise6.webp" style="width: 100px; height: 100px;">
-            </div>
+      </div>
+      <div class="columns is-centered">
+        <div id="dises">
+          <div class="column">
+            <img src="image/dise1.webp" style="width: 100px; height: 100px;">
+            <img src="image/dise2.webp" style="width: 100px; height: 100px;">
+            <img src="image/dise3.webp" style="width: 100px; height: 100px;">
+            <img src="image/dise4.webp" style="width: 100px; height: 100px;">
+            <img src="image/dise5.webp" style="width: 100px; height: 100px;">
+            <img src="image/dise6.webp" style="width: 100px; height: 100px;">
           </div>
+        </div>
       </div>
     </div>
-      <div class="columns is-centered">
-        <div id="buttons_minus">
-          <div class="column">
-            <button id="1" class="button is-danger is-large is-square" style="width: 40px; height: 40px;" onclick="rollDice_minus(1)">-1</button>
-            <button id="2" class="button is-danger is-large is-square" style="width: 40px; height: 40px;" onclick="rollDice_minus(2)">-2</button>
-            <button id="3" class="button is-danger is-large is-square" style="width: 40px; height: 40px;" onclick="rollDice_minus(3)">-3</button>
-            <button id="4" class="button is-danger is-large is-square" style="width: 40px; height: 40px;" onclick="rollDice_minus(4)">-4</button>
-            <button id="5" class="button is-danger is-large is-square" style="width: 40px; height: 40px;" onclick="rollDice_minus(5)">-5</button>
-            <button id="6" class="button is-danger is-large is-square" style="width: 40px; height: 40px;" onclick="rollDice_minus(6)">-6</button>
-          </div>
+    <div class="columns is-centered">
+      <div id="buttons_minus">
+        <div class="column">
+          <button id="1" class="button is-danger is-large is-square" style="width: 40px; height: 40px;"
+            onclick="rollDice_minus(1)">-1</button>
+          <button id="2" class="button is-danger is-large is-square" style="width: 40px; height: 40px;"
+            onclick="rollDice_minus(2)">-2</button>
+          <button id="3" class="button is-danger is-large is-square" style="width: 40px; height: 40px;"
+            onclick="rollDice_minus(3)">-3</button>
+          <button id="4" class="button is-danger is-large is-square" style="width: 40px; height: 40px;"
+            onclick="rollDice_minus(4)">-4</button>
+          <button id="5" class="button is-danger is-large is-square" style="width: 40px; height: 40px;"
+            onclick="rollDice_minus(5)">-5</button>
+          <button id="6" class="button is-danger is-large is-square" style="width: 40px; height: 40px;"
+            onclick="rollDice_minus(6)">-6</button>
         </div>
-      </div>   
+      </div>
+    </div>
   </section>
   <!-- フッター要素を作る -->
   <footer class="footer has-background-grey-lighter">
@@ -119,13 +133,14 @@
       <div class="content has-text-centered">
         <!-- smallタグで著作権表記をする -->
         <p>© 2023 T.A. All Rights Reserved.<br>
-        最終更新2023-12-16 Ver.2.0<br>
-        データは保存されるようになっていますが、万が一消えることがあります。<br>
-        データはキーボードの1～6でも入力できます。今すぐ試してみよう。</p>
+          最終更新2023-12-16 Ver.2.0<br>
+          データは保存されるようになっていますが、万が一消えることがあります。<br>
+          データはキーボードの1～6でも入力できます。今すぐ試してみよう。</p>
         <a href="site/rule.html">利用規約</a>
         <a href="site/version.html">バージョン情報</a>
       </div>
     </div>
   </footer>
 </body>
-  </html>
+
+</html>
