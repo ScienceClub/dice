@@ -45,39 +45,7 @@
       if (key >= "1" && key <= "6") {
         // キーを数値に変換
         var num = parseInt(key);
-        // 入力した回数を1増やす
-        count++;
-        // サイコロの目の出た回数を1増やす
-        freq[num - 1]++;
-        // 入力した回数を表示する要素を取得
-        var countElem = document.getElementById("count");
-        // 入力した回数を表示する
-        countElem.textContent = count;
-        // 各サイコロの目の出た回数と出る確率を表示する
-        for (var i = 1; i <= 6; i++) {
-          // 出た回数を表示する要素を取得
-          var freqElem = document.getElementById("freq" + i);
-          // 出た回数を表示する
-          freqElem.textContent = freq[i - 1];
-          // 出る確率を表示する要素を取得
-          var probElem = document.getElementById("prob" + i);
-          // 出る確率を計算する
-          var prob = freq[i - 1] / count * 100;
-          // 出る確率を小数点以下2桁に丸める
-          prob = Math.round(prob * 100) / 100;
-          // 出る確率を表示する
-          probElem.textContent = prob + "%";
-        }
-                // local storageにデータを保存する
-        // 入力した回数と出た回数の配列をオブジェクトにまとめる
-        var data = {
-          count: count,
-          freq: freq
-        };
-        // オブジェクトをJSON形式に変換する
-        data = JSON.stringify(data);
-        // local storageにデータを保存する
-        localStorage.setItem("dice", data);
+        rollDice(key)
       }
     });
 
