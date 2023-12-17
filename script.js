@@ -34,13 +34,6 @@ window.addEventListener("load", function () {
       prob = Math.round(prob * 100) / 100;
       // 出る確率を表示する
       probElem.textContent = prob + "%";
-      // 目標値を設定する
-      var goal = 10000;
-      // プログレスバーの要素を取得する
-      var progressBar = document.getElementById("progress-bar");
-      // プログレスバーの値と最大値を設定する
-      progressBar.value = count;
-      progressBar.max = goal;
     }
   }
 });
@@ -133,7 +126,6 @@ function rollDice(id) {
   var data = {
     count: count,
     freq: freq
-  };
   // オブジェクトをJSON形式に変換する
   data = JSON.stringify(data);
   // local storageにデータを保存する
@@ -172,13 +164,6 @@ function rollDice_minus(id) {
       prob = Math.round(prob * 100) / 100;
       // 出る確率を表示する
       probElem.textContent = prob + "%";
-      // 目標値を設定する
-      var goal = 10000;
-      // プログレスバーの要素を取得する
-      var progressBar = document.getElementById("progress-bar");
-      // プログレスバーの値と最大値を設定する
-      progressBar.value = count;
-      progressBar.max = goal;
     }
     // local storageにデータを保存する
     // 入力した回数と出た回数の配列をオブジェクトにまとめる
@@ -196,4 +181,3 @@ function rollDice_minus(id) {
     img.src = images_dise_minus[id - 1];
   }
 };
-2345
