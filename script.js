@@ -126,7 +126,9 @@ function rollDice(id) {
     // 出る確率を小数点以下2桁に丸める
     prob = Math.round(prob * 100) / 100;
     // 出る確率を表示する
-    probElem.textContent = prob + "%"
+    probElem.textContent = prob + "%";
+    // 目標値を設定する
+    var goal = 10000;
     // プログレスバーの要素を取得する
     var progressBar = document.getElementById("progress-bar");
     // プログレスバーの値と最大値を設定する
@@ -175,6 +177,8 @@ function rollDice_minus(id) {
       prob = Math.round(prob * 100) / 100;
       // 出る確率を表示する
       probElem.textContent = prob + "%";
+      // 目標値を設定する
+      var goal = 10000;
       // プログレスバーの要素を取得する
       var progressBar = document.getElementById("progress-bar");
       // プログレスバーの値と最大値を設定する
