@@ -38,7 +38,7 @@ window.addEventListener("load", function () {
   }
 });
 
-//キーボードの入力で回数を１増やす
+//キーボードの入力を検知する
 document.addEventListener("keydown", function (event) {
   // 押されたキーを取得
   var key = event.key;
@@ -49,39 +49,6 @@ document.addEventListener("keydown", function (event) {
     rollDice(key)
   }
 });
-
-// キーボード入力を取得するイベントリスナーを登録
-document.addEventListener("keydown", function (event) {
-  // 変数keyを宣言
-  let key;
-  // 押されたキーによってkeyに値を代入
-  switch (event.code) {
-    case "KeyQ":
-      key = 1;
-      break;
-    case "KeyW":
-      key = 2;
-      break;
-    case "KeyE":
-      key = 3;
-      break;
-    case "KeyR":
-      key = 4;
-      break;
-    case "KeyT":
-      key = 5;
-      break;
-    case "KeyY":
-      key = 6;
-      break;
-    default:
-      // q,w,e,r,t,y以外のキーは無視
-      return;
-  }
-  // rollDice_minus(key)を実行
-  rollDice_minus(key);
-});
-
 
 //リセット定義
 function reset() {
@@ -139,6 +106,8 @@ function rollDice(id) {
 
 //回数を１減らす定義
 function rollDice_minus(id) {
+  // クリックされたボタンのIDを取得
+  var id = event.target.id;
   // IDが1から6の場合のみ処理をする
   if (id >= 1 && id <= 6) {
     // IDを数値に変換
