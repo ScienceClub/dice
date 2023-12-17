@@ -132,13 +132,11 @@ function rollDice(id) {
     // プログレスバーの値と最大値を設定する
     progressBar.value = count;
     progressBar.max = goal;
-  }
   // local storageにデータを保存する
   // 入力した回数と出た回数の配列をオブジェクトにまとめる
   var data = {
     count: count,
     freq: freq
-  };
   // オブジェクトをJSON形式に変換する
   data = JSON.stringify(data);
   // local storageにデータを保存する
