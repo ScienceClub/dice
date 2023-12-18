@@ -1,3 +1,5 @@
+//バーの目標値設定
+var goal = 6000
 // 画像のパスを配列に格納する
 var images_dise = ["image/dise1.webp", "image/dise2.webp", "image/dise3.webp", "image/dise4.webp", "image/dise5.webp", "image/dise6.webp"];
 var images_dise_minus = ["image/dise1-minus.webp", "image/dise2-minus.webp", "image/dise3-minus.webp", "image/dise4-minus.webp", "image/dise5-minus.webp", "image/dise6-minus.webp"];
@@ -34,8 +36,6 @@ window.addEventListener("load", function () {
       prob = Math.round(prob * 100) / 100;
       // 出る確率を表示する
       probElem.textContent = prob + "%";
-      // 目標値を設定する
-      var goal = 10000;
       // プログレスバーの要素を取得する
       var progressBar = document.getElementById("progress-bar");
       // プログレスバーの値と最大値を設定する
@@ -127,6 +127,13 @@ function rollDice(id) {
     prob = Math.round(prob * 100) / 100;
     // 出る確率を表示する
     probElem.textContent = prob + "%";
+    // 目標値を設定する
+    var goal = 6000;
+    // プログレスバーの要素を取得する
+    var progressBar = document.getElementById("progress-bar");
+    // プログレスバーの値と最大値を設定する
+    progressBar.value = count;
+    progressBar.max = goal;
   }
   // local storageにデータを保存する
   // 入力した回数と出た回数の配列をオブジェクトにまとめる
@@ -173,7 +180,7 @@ function rollDice_minus(id) {
       // 出る確率を表示する
       probElem.textContent = prob + "%";
       // 目標値を設定する
-      var goal = 10000;
+      var goal = 6000;
       // プログレスバーの要素を取得する
       var progressBar = document.getElementById("progress-bar");
       // プログレスバーの値と最大値を設定する
