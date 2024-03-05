@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>バージョン情報</title>
+  <!-- BulmaのCDNを参照 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <!-- Font AwesomeのCDNを参照 -->
+  <script src="https://kit.fontawesome.com/a3be9883af.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <section class="hero is-danger"> <!-- heroクラスにis-dangerを追加 -->
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title is-size-1">重要な情報</h1> <!-- titleクラスにis-size-1を追加 -->
+      </div>
+    </div>
+  </section>
+  <!-- コンテナクラスで中央寄せ -->
+  <div class="container">
+    <!-- セクションクラスで余白を確保 -->
+    <section class="section">
+      <!-- コンテンツクラスでテキストを表示 -->
+      <div class="content">
+        <h2>ご利用中の皆さまへ重要なお知らせ</h2>
+        <p>
+          この度は、我がサイトをご利用いただきまして誠にありがとうございます。<br><br>既にお気づきであるとは思いますが、<var class="has-text-weight-bold">データが消失</var>するという自体が発生しております。この事象につきましては、<var class="has-text-weight-bold">利用規約の”責任の限定”及び”データの保証”の規定に基づき自己責任</var>として対応させていただきます。<br><br>しかしながら、このような事象が発生したことは個人的には申し訳なく思っております。つきましては早急に、<var class="has-text-weight-bold">個々のバックアップよりデータを入力できる機能</var>を追加する予定でございます。それまでしばらくお待ち下さい。なお、利用規約で自己責任に関する規定を行っているため、お問い合わせについては一律で対応しません。ご理解ください。<br><br>なお、利用者の皆様に正確な情報を提供することもサービス提供者の責務として考え、以下に記します。読み飛ばしていただいても構いません。
+        </p>
+        <h3>技術情報</h3>
+        <p>技術情報は多少グダグダになります。<br><br>まず、このサービスでは個人のデータをサーバーに送信していません。つまり入力したデータは、すべて個人のデバイス内に保存されています。この保存機能は、JavaScriptのlocalStorageという機能を利用して実装しています。<br><br>更に余談に入ると、webサイト上で、データを保存する方式として、localStorageとSessionStorageがあり、SessionStorageが一時的、localStorageが永久的という機能です。私もそう認識していました。<br><br>しかし、セキュリティ関連の問題でlocalStorageもiPhoneやiPadであれば７日で削除される仕様になっています。このせいでデバイス上に保存していたデータが自動的に削除され、今回の事象に至ったということになります。<br><br>そもそも公式ドキュメントも読まずに始めていたわけですが、Appleのセキュリティ仕様ぐらいはiPad向けに最適化している以上読んでおくべきであったなと感じております。<br><br>理想はすべてのデータをデータベース上で管理できることが理想ですが、データベースを作ろうとすると金銭的にも問題があるため、一旦バックアップから入力できる機能を実装することで問題を解決しようと考えております。<br><br>また、利用規約も改定を考えております。とはいえ作成には時間がかかるため、作成が完了すればこのページ上に報告いたしますので少々お待ちください。こんな文章に最後までお付き合いいただきありがとうございました。</p>
+      </div>
+    </section>
+  </div>
+  <footer class="footer has-background-grey-lighter">
+    <!-- containerクラスでコンテンツを囲み、is-fluidクラスで幅を画面いっぱいにする -->
+    <div class="container is-fluid">
+      <div class="content has-text-centered">
+        <!-- smallタグで著作権表記をする -->
+        <p>© 2023 T.A. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
