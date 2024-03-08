@@ -10,6 +10,12 @@
   <link rel="icon" href="/image/favicon.ico">
   <!-- Font AwesomeのCDNを参照 -->
   <script src="https://kit.fontawesome.com/a3be9883af.js" crossorigin="anonymous"></script>
+<!-- 左右中央揃え実装-->
+  <style>
+    .text-center {
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
@@ -26,17 +32,25 @@
     <section class="section">
       <!-- コンテンツクラスでテキストを表示 -->
       <div class="content">
-        <a href="../image/Information.pdf">
-          <img src="../image/Information.png" alt="">
-        </a>
+        <div class="text-center">
+          <a href="../image/Information.pdf">
+            <img src="../image/Information.png" alt="">
+          </a>
+        </div>
         <h3>技術情報</h3>
         <p> 技術情報は多少グダグダになります。</p>
-        <p>  まず、このサービスでは個人のデータをサーバーに送信していません。つまり入力したデータは、すべて個人のデバイス内に保存されています。この保存機能は、JavaScriptのlocalStorageという機能を利用して実装しています。</p>
-        <p>  更に余談に入ると、webサイト上で、データを保存する方式として、localStorageとSessionStorageがあり、SessionStorageが一時的、localStorageが永久的という機能です。私もそう認識していました。</p>
-        <p>  しかし、セキュリティ関連の問題でlocalStorageもiPhoneやiPadであれば７日で削除される仕様になっています。このせいでデバイス上に保存していたデータが自動的に削除され、今回の事象に至ったということになります。</p>
-        <p>  そもそも公式ドキュメントも読まずに始めていたわけですが、Appleのセキュリティ仕様ぐらいはiPad向けに最適化している以上読んでおくべきであったなと感じております。</p>
-        <p>  理想はすべてのデータをデータベース上で管理できることですが、データベースを作ろうとすると金銭的にも問題があるため、一旦バックアップから入力できる機能を実装することで問題を解決しようと考えております。</p>
-        <p>  また、利用規約も改定を考えております。とはいえ作成には時間がかかるため、作成が完了すればこのページ上に報告いたしますので少々お待ちください。こんな文章に最後までお付き合いいただきありがとうございました。</p>
+        <p>
+          まず、このサービスでは個人のデータをサーバーに送信していません。つまり入力したデータは、すべて個人のデバイス内に保存されています。この保存機能は、JavaScriptのlocalStorageという機能を利用して実装しています。
+        </p>
+        <p>
+          更に余談に入ると、webサイト上で、データを保存する方式として、localStorageとSessionStorageがあり、SessionStorageが一時的、localStorageが永久的という機能です。私もそう認識していました。
+        </p>
+        <p>
+          しかし、セキュリティ関連の問題でlocalStorageもiPhoneやiPadであれば７日で削除される仕様になっています。このせいでデバイス上に保存していたデータが自動的に削除され、今回の事象に至ったということになります。
+        </p>
+        <p> そもそも公式ドキュメントも読まずに始めていたわけですが、Appleのセキュリティ仕様ぐらいはiPad向けに最適化している以上読んでおくべきであったなと感じております。</p>
+        <p> 理想はすべてのデータをデータベース上で管理できることですが、データベースを作ろうとすると金銭的にも問題があるため、一旦バックアップから入力できる機能を実装することで問題を解決しようと考えております。</p>
+        <p> また、利用規約も改定を考えております。とはいえ作成には時間がかかるため、作成が完了すればこのページ上に報告いたしますので少々お待ちください。こんな文章に最後までお付き合いいただきありがとうございました。</p>
       </div>
     </section>
   </div>
@@ -46,6 +60,7 @@
       <div class="content has-text-centered">
         <!-- smallタグで著作権表記をする -->
         <p>© 2023 T.A. All Rights Reserved.</p>
+        <p>最終更新 2024-03-08</p>
       </div>
     </div>
   </footer>
