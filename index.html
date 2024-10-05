@@ -10,6 +10,7 @@
   <link rel="icon" href="/image/favicon.ico">
   <script src="script.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="サイコロの出目を記録し、各目の出る確率を計算します。">
 </head>
 
 <body>
@@ -82,7 +83,7 @@
           <!-- RESETボタン -->
           <button id="reset" class="button is-danger is-outlined" onclick="reset()">RESET</button>
           <!-- 注意書きと画像 -->
-          <p style="font-size: 12px;">注:リセットしたあとは再読み込み(<img src="image/re.webp" width="12" height="12">)を押してください</p>
+          <p style="font-size: 12px;">注:リセットしたあとは再読み込み(<img src="image/re.webp" art="reload" width="12" height="12">)を押してください</p>
         </div>
       </div>
       <progress id="progress-bar" class="progress is-primary is-medium" value="0" max="100"></progress>
@@ -108,12 +109,12 @@
       <div class="columns is-centered">
         <div id="dises">
           <div class="column">
-            <img src="image/dise1.webp" style="width: 100px; height: 100px;">
-            <img src="image/dise2.webp" style="width: 100px; height: 100px;">
-            <img src="image/dise3.webp" style="width: 100px; height: 100px;">
-            <img src="image/dise4.webp" style="width: 100px; height: 100px;">
-            <img src="image/dise5.webp" style="width: 100px; height: 100px;">
-            <img src="image/dise6.webp" style="width: 100px; height: 100px;">
+            <img src="image/dise1.webp" art="1" style="width: 100px; height: 100px;">
+            <img src="image/dise2.webp" art="2" style="width: 100px; height: 100px;">
+            <img src="image/dise3.webp" art="3" style="width: 100px; height: 100px;">
+            <img src="image/dise4.webp" art="4" style="width: 100px; height: 100px;">
+            <img src="image/dise5.webp" art="5" style="width: 100px; height: 100px;">
+            <img src="image/dise6.webp" art="6" style="width: 100px; height: 100px;">
           </div>
         </div>
       </div>
